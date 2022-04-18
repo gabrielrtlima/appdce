@@ -1,0 +1,13 @@
+header {
+    background-color: #464646;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    padding: 2%;
+    font-family: Sen, sans-serif;
+}
