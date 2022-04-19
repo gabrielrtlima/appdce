@@ -1,0 +1,31 @@
+
+.cabecalho {
+    text-align: center;
+    font-family: Sen, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.bloco_anuncio {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+strong {
+    font-weight: bold;
+}
+
+
+button {
+    border: 1px solid #464646;
+    background: #51A57D;
+    border-radius: 20px;
+    width: 100%;
+    padding: 5%;
+    font-size: 17px;
+    font-family: Sen, sans-serif;
+}
