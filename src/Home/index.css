@@ -33,6 +33,12 @@
     margin-top: 5%;
 }
 
+.login h1 {
+    font-family: Sen, sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 2%;
+}
+
 .login input {
     width: 150%;
     border: 1px solid #464646;
