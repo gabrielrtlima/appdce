@@ -1,0 +1,17 @@
+.criar-anuncio {
+    display: flex;
+    align-content: center;
+}
+
+img {
+    width: 20%;
+    margin-right: 5%;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 12rem;
+}

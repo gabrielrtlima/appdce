@@ -45,6 +45,12 @@
     font-size: 17px;
 }
 
+.cadastro h1 {
+    font-family: Sen, sans-serif;
+    font-size: 30px;
+    margin-top: 5%;
+}
+
 button {
     border: 1px solid #464646;
     background: #51A57D;
