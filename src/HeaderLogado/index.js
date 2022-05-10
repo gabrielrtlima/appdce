@@ -8,7 +8,7 @@ export default function HeaderLogado() {
                 <div className="criar-anuncio">
                     <button>
                         <img src="icone-mais.svg"/>
-                        <p>Criar Anúncio</p>
+                        <a><Link to="/criar-anuncio">CRIAR ANÚNCIO</Link></a>
                     </button>
                 </div>
                 <div className="menu">

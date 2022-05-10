@@ -1,0 +1,38 @@
+.container-anuncios {
+    display: flex;
+    padding-top: 3%;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: Sen;
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.anuncio {
+    margin-top: 4%;
+    display: flex;
+    background-color: #9F9F9F;
+    border: 1px solid #464646;
+    border-radius: 20px;
+    align-items: center;
+    padding: 3% 3% 3% 3%;
+    justify-content: center;
+    max-width: 50%;
+    max-height: 50%;
+
+}
+
+.anuncio-img img{
+    width: 156px;
+    height: 156px;
+}
+
+.anuncio-desc {
+    background-color: #C4C4C4;
+    border: 1px solid #464646;
+    padding: 5% 2% 5% 3%;
+    margin-left: 2%;
+}
