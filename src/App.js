@@ -2,6 +2,8 @@ import './App.css';
 import './style.css'
 import Home from './Home'
 import Cadastro from './Cadastro'
+import Anuncios from "./Anuncios";
+
 import PerfilUsuario from "./PerfilUsuario";
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -20,6 +22,7 @@ function App() {
                 <Route path="/meus-anuncios" element={<MeusAnuncios/>}/>
                 <Route path="/editar-perfil" element={<EditarPerfil />}/>
                 <Route path="/criar-anuncio" element={<CriarAnuncio />}/>
+                <Route path="/inicio" element={<Anuncios/>}/>
             </Routes>
         </Router>
       </>
