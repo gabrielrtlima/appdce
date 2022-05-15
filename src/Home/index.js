@@ -1,17 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import Context from '../Store/Context';
+import { useNavigate } from 'react-router-dom';
 import Header from '../Header'
-
 import './index.css'
 
 
 export default function Home() {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const url = 'http://localhost/api/v1/auth/login'
+    const [senha, setSenha] = useState('');
+    const { setToken } = useContext(Context);
+    const navigate = useNavigate();
+    const url = 'http://localhost:8080/api/login'
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('submit', {email, password})
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        var formLogin = []
+        for (var property in {email, senha}) {
+            var encodedKey = encodeURIComponent(property);
+            var encodedValue = encodeURIComponent({email, senha}[property]);
+            formLogin.push(encodedKey + "=" + encodedValue);
+        }
+        formLogin = formLogin.join("&");
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+            body: formLogin,
+            mode: 'cors'
+        })
+        const data = await response.json();
+        console.log(data)
+
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('usuarioEmail', data.email)
+
+        if (data.token) {
+            setToken(data.token);
+            navigate('/perfil')
+        }
+
     }
 
 
@@ -29,7 +60,7 @@ export default function Home() {
                 <form className="login" onSubmit={handleSubmit}>
                     <h1>Login</h1>
                     <input type="email" placeholder={"Insira seu E-mail"} name={'email'} id={'email'} value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <input type="password" placeholder={"Insira sua senha"} name={'password'} id={'password'} value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <input type="password" placeholder={"Insira sua senha"} name={'password'} id={'password'} value={senha} onChange={(e) => setSenha(e.target.value)}/>
                     <button>Entrar</button>
                 </form>
             </div>

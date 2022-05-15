@@ -1,8 +1,12 @@
 import './index.css'
 import HeaderLogado from "../HeaderLogado"
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export default function PerfilUsuario() {
+
+    axios.get()
+
     return (
         <>
             <HeaderLogado />

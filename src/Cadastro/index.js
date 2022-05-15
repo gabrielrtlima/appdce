@@ -11,18 +11,36 @@ export default function Cadastro() {
     const [cpf, setCpf] = useState('');
     const [data, setData] = useState('');
 
-    const handleRegister = (e) => { 
+    const handleRegister = async (e) => { 
         e.preventDefault()
-        Axios.post('http://localhost/api/v1/users/create', {
-            nome: nome,
-            email: email,
-            password: password,
-            confirmPassword: confirmPassword,
-            cpf: cpf,
-            data: data
-        }).then(res => {
-            console.log(res)
+        
+        console.log(nome, email, password, confirmPassword, cpf, data)
+
+        const response = await fetch('http://localhost:8080/api/usuario',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify({
+                nome: nome,
+                email: email,
+                senha: password,
+                cpf: cpf,
+                tipoUsuario: [
+                    {
+                        id: 32,
+                        name: 'Normal'
+                    }
+                ]
+            }),
+            mode: 'cors'
         })
+        if(response.status === 500){
+            alert('Email já cadastrado')
+        }
+
+        // })
     }
 
     return(

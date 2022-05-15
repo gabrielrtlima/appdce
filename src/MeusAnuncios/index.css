@@ -22,7 +22,6 @@ h1 {
     justify-content: center;
     max-width: 50%;
     max-height: 50%;
-
 }
 
 .anuncio-img img{
@@ -35,4 +34,5 @@ h1 {
     border: 1px solid #464646;
     padding: 5% 2% 5% 3%;
     margin-left: 2%;
+    font-family: 'Courier New', Courier, monospace;
 }
