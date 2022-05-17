@@ -5,6 +5,19 @@ import React, { useEffect, useState } from 'react'
 export default function Anuncios(){
 
     const [anuncios, setAnuncios] = useState([])
+    const [usuario_id, setUsuario_id] = useState('')
+    const usuarioEmail = localStorage.getItem('usuarioEmail')
+
+    useEffect(() => {
+        const url = 'http://localhost:8080/api/usuario/' + usuarioEmail
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            setUsuario_id(data.id)
+        })
+    }, [])
+
+    const id = localStorage.setItem('usuario_id', usuario_id)
 
     useEffect(() => {
         const url = 'http://localhost:8080/api/anuncios'
@@ -12,33 +25,32 @@ export default function Anuncios(){
         .then(response => response.json())
         .then(data => setAnuncios(data))
     }, [])
-
-    console.log(anuncios)
-
+    
     return(
        <>
         <HeaderLogado />
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12">
+                <div className="container-anuncios">
                     <h1>Anúncios</h1>
-                </div>
-            </div>
-            <div className="row">
-                {anuncios.map(anuncio => (
-                    <div className="col-md-4" key={anuncio.id}>
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">{anuncio.nome}</h5>
-                                <p className="card-text">{anuncio.descricao}</p>
-                                <a href="#" className="btn btn-primary">Contato</a>
+            {anuncios.map(anuncio => (
+                    <div className="anuncio">
+                        <div className='anuncio-title'>
+                            <h1>{anuncio.nome}</h1>
+                        </div>
+                        <div className='anuncio-container'>
+                            <div className="anuncio-img">
+                                <img src={anuncio.imagem}/>
+                            </div>
+
+                            <div className="anuncio-desc">
+                                {anuncio.descricao}
                             </div>
                         </div>
+                        <div>
+                            <button className='anuncio-contato' onClick={(e) => {window.alert(anuncio.contato)}}>Contato</button>
+                        </div>
                     </div>
-                ))}
+            ))}
             </div>
-        </div>
-
-       </>
+        </>
     )
 }

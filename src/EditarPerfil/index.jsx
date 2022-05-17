@@ -29,6 +29,7 @@ export default function EditarPerfil() {
         .then(response => response.json())
         .then(data => {
             setParametro({
+                id: data.id,
                 email: data.email,
                 nome: data.nome,
                 senha: data.senha,
@@ -40,6 +41,7 @@ export default function EditarPerfil() {
         }
         );
     }, [])
+    console.log(parametro)
 
     return (
         <>
@@ -47,11 +49,11 @@ export default function EditarPerfil() {
             <div className="editar-perfil">
                 <h1>Configurações da Conta</h1>
                 <div className="container-editar">
-                    <input type="text" name="nome" id="nome" placeholder='Seu nome' value={parametro.nome}/>
-                    <input type="email" name="email" id="email" placeholder='Seu e-mail' value={parametro.email}/>
-                    <input type="senha" name="senha" id="senha" placeholder='Sua senha'/>
+                    <input type="text" name="nome" id="nome" placeholder={parametro.nome} value=""/>
+                    <input type="email" name="email" id="email" placeholder={parametro.email}/>
+                    <input type="password" name="senha" id="senha" placeholder={"*********"}/>
                     <input type="date" name="data_nascimento" id="data_nascimento" placeholder='Data de nascimento'/>
-                    <input type="text" name="cpf" id="cpf" placeholder='Seu CPF' value={parametro.cpf}/>
+                    <input type="text" name="cpf" id="cpf" placeholder={parametro.cpf}/>
                     <div className='container-botao'>
                         <button className='botao-excluir'>Excluir Conta</button>
                         <button className='botao-atualizar'>Salvar</button>

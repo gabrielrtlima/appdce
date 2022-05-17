@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Context from '../Store/Context';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header'
@@ -40,9 +40,8 @@ export default function Home() {
 
         if (data.token) {
             setToken(data.token);
-            navigate('/perfil')
+            navigate('/anuncios')
         }
-
     }
 
 

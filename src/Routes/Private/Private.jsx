@@ -6,7 +6,7 @@ import Context from "../../Store/Context";
 const PrivateRoute = ({component: Component, ...rest}) => {
     const { token } = useContext(Context);
 
-    return token ? <Outlet /> : <Navigate to="/cadastrar" />
+    return token ? <Outlet /> : <Navigate to="/401" />
 
 }
 

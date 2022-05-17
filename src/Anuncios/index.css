@@ -1,31 +1,25 @@
-
-.cabecalho {
-    text-align: center;
-    font-family: Sen, sans-serif;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-
-.bloco_anuncio {
+.container {
     display: flex;
     flex-direction: column;
-    align-content: center;
     align-items: center;
-    justify-content: space-around;
 }
 
-strong {
-    font-weight: bold;
-}
-
-
-button {
-    border: 1px solid #464646;
-    background: #51A57D;
-    border-radius: 20px;
-    width: 100%;
+.corpo-anuncio {
+    background-color: rgb(255, 255, 255);
     padding: 5%;
-    font-size: 17px;
-    font-family: Sen, sans-serif;
+    margin-bottom: 5%;
+    width: 90%;
+}
+
+.anuncio-nome {
+    display: flex;
+}
+
+.anuncio {
+    width: 100%;
+    margin-bottom: 4%;
+}
+
+.anuncio-contato {
+    margin-top: 30%;
 }

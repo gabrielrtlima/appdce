@@ -14,6 +14,7 @@ h1 {
 .anuncio {
     margin-top: 4%;
     display: flex;
+    flex-direction: column;
     background-color: #9F9F9F;
     border: 1px solid #464646;
     border-radius: 20px;
@@ -35,4 +36,8 @@ h1 {
     padding: 5% 2% 5% 3%;
     margin-left: 2%;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.anuncio-container {
+    display: flex;
 }
