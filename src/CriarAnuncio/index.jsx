@@ -1,14 +1,20 @@
 import HeaderLogado from "../HeaderLogado";
 import './index.css';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function CriarAnuncio() {   
     const [nome, setNome] = useState('');
     const [descricao, setDescricao] = useState('');
     const [contato, setContato ] = useState('');
-    const [imagem, setImagem] = useState('');
+    // const [imagem, setImagem] = useState('');
     const [imagemURL, setImagemURL] = useState('./img-anuncio.svg');
     const [id_usuario, setId_usuario ] = useState('');
+    const navigateAnuncios = useNavigate();
+
+    const mudarRota = () => {
+        navigateAnuncios('/anuncios');
+    }
 
     const onImageChange = (e) => {
         e.preventDefault()
@@ -46,9 +52,7 @@ export default function CriarAnuncio() {
         }, error => {
             console.log(error);
         });
-    }, [])
-
-    console.log(id_usuario)
+    }, [id_usuario])
 
     const submit = async (e) => {
         e.preventDefault();
@@ -68,6 +72,8 @@ export default function CriarAnuncio() {
         });
         const data = await response.json();
         console.log(data);
+        
+        mudarRota();
     }
 
     return(
@@ -83,7 +89,7 @@ export default function CriarAnuncio() {
                         <div className="container-desc">
                             <input type="text" name="nome_anuncio" id="nome_anuncio" placeholder="Nome do anúncio" size={20} maxLength={18} onChange={(e) => setNome(e.target.value)}/>
                             <textarea name="desc_anuncio" id="desc_anuncio" placeholder="Descrição do anúncio" rows={8} onChange={(e) => { setDescricao(e.target.value)}}/>
-                            <input type="text" name="contato" id="contato" onChange={(e) => {setContato(e.target.value)}}/>
+                            <input className={"input-contato"} type="text" name="contato" id="contato" onChange={(e) => {setContato(e.target.value)}} placeholder={"Insira seu contato"}/>
                         </div>
                     </div>
                     <button onClick={submit}>Publicar anúncio</button>

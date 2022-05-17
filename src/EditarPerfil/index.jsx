@@ -52,7 +52,7 @@ export default function EditarPerfil() {
                     <input type="text" name="nome" id="nome" placeholder={parametro.nome} value=""/>
                     <input type="email" name="email" id="email" placeholder={parametro.email}/>
                     <input type="password" name="senha" id="senha" placeholder={"*********"}/>
-                    <input type="date" name="data_nascimento" id="data_nascimento" placeholder='Data de nascimento'/>
+                    {/* <input type="date" name="data_nascimento" id="data_nascimento" placeholder='Data de nascimento'/> */}
                     <input type="text" name="cpf" id="cpf" placeholder={parametro.cpf}/>
                     <div className='container-botao'>
                         <button className='botao-excluir'>Excluir Conta</button>

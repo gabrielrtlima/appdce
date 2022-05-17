@@ -2,6 +2,7 @@ import './index.css'
 import Header from '../Header'
 import Axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function Cadastro() {
     const [nome, setNome] = useState('');
@@ -10,6 +11,10 @@ export default function Cadastro() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [cpf, setCpf] = useState('');
     const [data, setData] = useState('');
+    
+    const mudarRota = useNavigate();
+
+
 
     const handleRegister = async (e) => { 
         e.preventDefault()
@@ -29,7 +34,7 @@ export default function Cadastro() {
                 cpf: cpf,
                 tipoUsuario: [
                     {
-                        id: 32,
+                        id: 57,
                         name: 'Normal'
                     }
                 ]
@@ -40,7 +45,8 @@ export default function Cadastro() {
             alert('Email já cadastrado')
         }
 
-        // })
+        mudarRota('/')
+        
     }
 
     return(
@@ -60,7 +66,7 @@ export default function Cadastro() {
                     <input type="email" placeholder={"Insira seu E-mail"} name={'email'} id={'email'} value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <input type="password" placeholder={"Insira sua Senha"} name={'password'} id={'password'} value={password} onChange={(e) => setPassword(e.target.value)}/>
                     <input type="password" placeholder={"Confirme sua Senha"} name={'confirmPassword'} id={'confirmPassword'} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
-                    <input type="date" placeholder={"Insira sua Data de Nascimento"} name={'data'} id={'data'} value={data} onChange={(e) => setData(e.target.value)}/>
+                    {/* <input type="date" placeholder={"Insira sua Data de Nascimento"} name={'data'} id={'data'} value={data} onChange={(e) => setData(e.target.value)}/> */}
                     <input type="text" placeholder={"Insira seu CPF"} name={'cpf'} id={'cpf'} value={cpf} onChange={(e) => setCpf(e.target.value)}/>
                     <button>Cadastrar</button>
                 </form>

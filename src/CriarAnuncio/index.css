@@ -60,3 +60,10 @@
 .container-criar button {
     padding: 2%;
 }
+
+.input-contato {
+    margin-top: 2%;
+    border-radius: 20px;
+    border: 1px solid #464646;
+    padding: 2%;
+}
